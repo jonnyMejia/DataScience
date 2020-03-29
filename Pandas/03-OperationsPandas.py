@@ -89,26 +89,25 @@ A[0]=[4, 8, 6, 1]
 # Restar a todas las filas la primera fila
 A - A[0]
 
-
+# Crea un dataframe con 4 columnas
 df = pd.DataFrame(A, columns=list('QRST'))
+
+# Restar todas las filas con la primera fila del dataframe
 df - df.iloc[0]
 
+# Restar a todas las columnas la columna 'R'
+df.subtract(df["R"], axis=0)
 
-
-
-
-df.subtract(df['R'], axis=0)
-
-
-
-
-
+# Mostrar el primer registro y las columnas de dos en dos
 halfrow = df.iloc[0, ::2]
-halfrow
 
-
-
-
+# Resra a df la columna halfrow, mostrara NaN en R y t porque halfrow no tiene indices R Y T
+"""
+     Q   R    S   T
+0  0.0 NaN  0.0 NaN
+1 -5.0 NaN  0.0 NaN
+2  3.0 NaN  1.0 NaN
+"""
 df - halfrow
 
 
